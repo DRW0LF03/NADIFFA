@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NADIFFA</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+
+    <header class="app-header">
+        <div class="header-content">
+            <div class="logo">NADIFFA<span></div>
+            <p class="slogan"> التواصل الأخضر من أجل مدينة نظيفة</p>
+        </div>
+    </header>
+
+    <main class="content-wrapper">
+        <section class="card">
+            <div class="card-header">
+                <h3>📍 الخريطة التفاعلية</h3>
+                <div class="map-toggles">
+                    <button onclick="toggleMap('trucks')" class="btn-sm">🚚 مسار الشاحنات</button>
+                    <button onclick="toggleMap('bins')" class="btn-sm">🗑️ مواقع الحاويات</button>
+                </div>
+            </div>
+            <div id="map" style="height: 250px; border-radius: 12px; background: #eee;"></div>
+        </section>
+
+        <section class="categories-container">
+            <h3>اختر فئة البلاغ</h3>
+            <div class="categories-grid">
+                <div class="cat-item" onclick="openReportModal('منزلية')"><div class="icon">🏠</div><p>منزلية</p></div>
+                <div class="cat-item" onclick="openReportModal('طبية')"><div class="icon red">🏥</div><p>طبية</p></div>
+                <div class="cat-item" onclick="openReportModal('صناعية')"><div class="icon orange">🏭</div><p>صناعية</p></div>
+                <div class="cat-item" onclick="openReportModal('سائلة')"><div class="icon blue">💧</div><p>سائلة</p></div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h3>📅 جدول مواعيد الجمع</h3>
+            <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr><th>الحي</th><th>الأيام</th><th>الوقت</th></tr>
+                    </thead>
+                    <tbody id="scheduleTable">
+                        </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="recycling-section">
+            <h3>♻️ شركات التدوير</h3>
+            <div class="partners-row">
+                <div class="p-card">بلاستيك</div>
+                <div class="p-card">ورق</div>
+                <div class="p-card">زجاج</div>
+                <div class="p-card">معادن</div>
+            </div>
+        </section>
+    </main>
+
+    <div id="reportModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3 id="modalTitle">إرسال بلاغ جديد</h3>
+            <div class="upload-area" onclick="document.getElementById('cameraInput').click()">
+                <span id="uploadStatus">📸 اضغط لالتقاط صورة</span>
+                <input type="file" id="cameraInput" accept="image/*" capture="camera" hidden>
+            </div>
+            <button class="btn-location" onclick="getGPS()">📍 تحديد موقعي الحالي</button>
+            <p id="gpsText"></p>
+            <button class="btn-submit" onclick="submitReport()">إرسال للمسؤولين</button>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

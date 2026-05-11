@@ -1,0 +1,67 @@
+:root {
+    --main-green: #27ae60;
+    --dark-green: #1e8449;
+    --bg-light: #f4f7f6;
+    --text-dark: #2c3e50;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--bg-light);
+    margin: 0; padding-bottom: 50px;
+}
+
+.app-header {
+    background: var(--dark-green);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 0 0 25px 25px;
+}
+
+.logo { font-size: 1.5rem; font-weight: bold; }
+.logo span { color: #f1c40f; }
+
+.content-wrapper { padding: 15px; }
+
+.card {
+    background: white;
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* شبكة التصنيفات */
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.cat-item {
+    text-align: center;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.cat-item .icon { font-size: 1.5rem; margin-bottom: 5px; }
+
+/* جداول */
+.table-scroll { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+th { background: #eee; text-align: right; padding: 10px; }
+td { padding: 10px; border-bottom: 1px solid #eee; }
+
+/* أزرار */
+.btn-sm { background: var(--main-green); color: white; border: none; padding: 5px 10px; border-radius: 5px; font-size: 0.7rem; }
+.btn-submit { width: 100%; padding: 15px; background: var(--dark-green); color: white; border: none; border-radius: 10px; margin-top: 10px; }
+
+/* نوافذ */
+.modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; }
+.modal-content { background: white; margin: 20% auto; padding: 20px; width: 85%; border-radius: 20px; position: relative; }
+.upload-area { border: 2px dashed #ccc; padding: 30px; text-align: center; border-radius: 15px; margin: 15px 0; }
