@@ -42,4 +42,17 @@ function submitReport() {
     closeModal();
 }
 
-window.onload = loadTable;
+window.onload = function() {
+    loadTable(); // Your existing function
+
+    // Set a timeout (e.g., 2500 milliseconds = 2.5 seconds)
+    setTimeout(() => {
+        const splash = document.getElementById('splash-screen');
+        splash.classList.add('fade-out');
+        
+        // Completely remove from DOM after fade finishes so it doesn't block clicks
+        setTimeout(() => {
+            splash.style.display = 'none';
+        }, 500); 
+    }, 2500);
+};
